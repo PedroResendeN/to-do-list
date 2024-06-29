@@ -73,7 +73,6 @@ button {
 
 .cartao {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     gap: 10px;
 }
@@ -82,14 +81,18 @@ button {
     width: 100%;
     border-radius: 15px;
     line-height: 24px;
+    font-size: 14px;
     padding: 0 5px;
     background-color: #fff;
 }
 
 .botoes {
     display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 5px;
     color: #5F6368;
+}
+
+/* tarefa marcada */
+.marcado {
+    text-decoration: line-through;
 }

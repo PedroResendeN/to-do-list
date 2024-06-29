@@ -5,17 +5,18 @@ const tarefas = [];
 
 function adicionar() {
 
-    if (input.value === "") {
+    if (!input.value) {
         alert("Digite uma nova tarefa!")
     }
     else {
         let entrada = input.value;
         tarefas.push(entrada)
+        let index = tarefas[tarefas.length - 1]
 
         const conteudoCartao = `<div class="cartao">
-            <span class="tarefa">${tarefas[tarefas.length - 1]}</span>
+            <span class="tarefa ${index}">${index}</span>
             <span class="botoes">
-                <button class="checked" onclick="marcar()">
+                <button class="checked ${index}" onclick="marcar(this)">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>
                 </button>
                 |
@@ -43,12 +44,14 @@ function adicionar() {
             container.innerHTML += conteudoCartao;
         }
         
+        input.value = "";
     }
     
 } 
 
-function marcar() {
-    
+function marcar(button) {
+    let campo = button.parentElement.parentElement;
+    campo.querySelector(".tarefa").classList.toggle('marcado');
 }
 
 function editar() {
